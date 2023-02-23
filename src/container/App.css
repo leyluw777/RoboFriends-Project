@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'SEGA LOGO FONT';
+  src: local('SEGA LOGO FONT'), url('SEGA.TTF') format('TTF')
+}
+
+body {
+  background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1) 100%);
+}
+.container{
+  overflow: hidden;
+}
+h1 {
+  font-family: 'SEGA LOGO FONT';
+  font-weight: 200;
+  color: #0ccac4;
+}
+
+h2 {
+  color: #004442;
+}
+
+input {
+  border: 1px solid black;
+  padding: 10px 15px;
+  outline: none;
+  margin: auto;
+  border-radius: 15px ;
+  border: 1px solid #004442;
+  color: #004442;
+}
+
+input::placeholder {
+  font-style: italic ;
+}
+
+.searchbox {
+  position: sticky;
+  top: 0px;
+  left: 20px;
+}
