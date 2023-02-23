@@ -38,3 +38,15 @@ input::placeholder {
   top: 0px;
   left: 20px;
 }
+
+.loading-div {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-img {
+    width: 80px;
+}

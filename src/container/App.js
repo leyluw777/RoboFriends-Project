@@ -3,6 +3,7 @@ import './App.css';
 import CardList from '../components/CardList'
 import Searchbox from '../components/Searchbox'
 import ErrorBoundry from '../components/ErrorBoundry';
+import image from "../waiting-gifs.gif"
 
 class App extends Component {
   constructor(){
@@ -31,9 +32,9 @@ class App extends Component {
     const filteredRobots = robots.filter( robot => {
       return robot.name.toLowerCase().includes(searchfield.toLowerCase())
     })
-    // if (!robots.length) {
-    //   return <h1> Loading...</h1>
-    // }
+    if (!robots.length) {
+      return <div className='loading-div'> <img src={image} className='loading-img'/> </div>
+    }
     return (
       <div className="tc container" >
       <h1 className='f1'> RoboProject</h1>
