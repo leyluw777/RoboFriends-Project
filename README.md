@@ -16,6 +16,6 @@ What I used in project:
 * The page is fully responsive. For responsiveness Tachyons CSS framework was used.
 * The data was taken from fake REST API (JSON placeholder) and used by using props in all cards. 
 * You can see the input, and while you are typing, the cards is filtered according to the searchbox.
-* Features that is not shown, but they exist:
+* _ _ Features that are not visible: _ _
   - Loading screen. If the cards are loading too long, there is simple loading screen which says about load.
   - Boundary error. The new feature of React was also used, so if there is any error according to the cards, then error message will appears instead of cards.
