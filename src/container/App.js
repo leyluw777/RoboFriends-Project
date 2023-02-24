@@ -1,52 +1,40 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import CardList from '../components/CardList'
 import Searchbox from '../components/Searchbox'
 import ErrorBoundry from '../components/ErrorBoundry';
 import image from "../waiting-gifs.gif"
 
-class App extends Component {
-  constructor(){
-    super()
-    this.state={
-      robots: [],
-      searchfield: ''
-    }
-  }
-  componentDidMount() {
+const App = () => {
+  const [robots, setRobots] = useState([]);
+  const [searchfield, setSearchfield] = useState("");
+
+  useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(data =>
-      this.setState({robots: data}))
+      .then(response => response.json())
+      .then(data => { setRobots(data) })
+  },[])
+
+  const onSearchChange = (event) => {
+    setSearchfield(event.target.value)
   }
 
-    onSearchChange = (event) => {
-        this.setState(
-          {
-            searchfield: event.target.value
-          });
-    }
+  const filteredRobots = robots.filter(robot => {
+    return robot.name.toLowerCase().includes(searchfield.toLowerCase())
+  })
 
-  render(){
-    const {robots, searchfield} = this.state;
-    const filteredRobots = robots.filter( robot => {
-      return robot.name.toLowerCase().includes(searchfield.toLowerCase())
-    })
-    if (!robots.length) {
-      return <div className='loading-div'> <img src={image} className='loading-img'/> </div>
-    }
-    return (
-      <div className="tc container" >
+  return (!robots.length) ? 
+  <div className='loading-div'> <img src={image} className='loading-img' /> </div>
+  : 
+ (
+    <div className="tc container" >
       <h1 className='f1'> RoboProject</h1>
-     
-      <Searchbox searchChange={this.onSearchChange} />
-      <ErrorBoundry> 
-      <CardList className='mt3' robots={filteredRobots}/>
+      <Searchbox searchChange={onSearchChange} />
+      <ErrorBoundry>
+        <CardList className='mt3' robots={filteredRobots} />
       </ErrorBoundry>
-      </div>
-    );
-  }
- 
+    </div>
+  )
 }
 
 export default App;
