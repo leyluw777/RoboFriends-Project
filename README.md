@@ -7,7 +7,7 @@ This is SP project which generates cards according to the input. The project was
 
 ## Technologies 
 What I used in project:
-* React (React Hooks: UseEffect, UseState)
+* React, Redux, Redux Middleware
 * CSS
 * Tachyons
 
@@ -19,3 +19,4 @@ What I used in project:
 * _Features that are not visible:_
   - Loading screen. If the cards are loading too long, there is simple loading screen which says about load.
   - Boundary error. The new feature of React was also used, so if there is any error according to the cards, then error message will appears instead of cards.
+  - Redux Middleware, which shows every change in console log.
